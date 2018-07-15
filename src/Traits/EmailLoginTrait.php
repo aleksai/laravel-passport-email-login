@@ -3,6 +3,9 @@
 namespace LenyaPugachev\PassportEmailLogin\Traits;
 
 use Illuminate\Http\Request;
+use League\OAuth2\Server\Exception\OAuthServerException;
+
+use Exception;
 
 trait EmailLoginTrait {
 
@@ -33,7 +36,7 @@ trait EmailLoginTrait {
 
 				return $user;
 			}
-		} catch ( \Exception $e ) {
+		} catch ( Exception $e ) {
 			// die( $e->getMessage() );
 			throw OAuthServerException::accessDenied( $e->getMessage() );
 		}
