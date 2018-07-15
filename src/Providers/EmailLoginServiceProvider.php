@@ -13,12 +13,20 @@ use LenyaPugachev\PassportEmailLogin\EmailLoginRequestGrant;
 
 class EmailLoginServiceProvider extends ServiceProvider {
 	public function register() {
+		$this->mergeConfigFrom(
+			__DIR__ . '/../config/email-passport.php', 'email-passport'
+		);
 	}
-
 	public function boot() {
+		$this->createConfig();
 		if ( file_exists( storage_path( 'oauth-private.key' ) ) ) {
 			app( AuthorizationServer::class )->enableGrantType( $this->makeRequestGrant(), Passport::tokensExpireIn() );
 		}
+	}
+	public function createConfig() {
+		$this->publishes( [
+			__DIR__ . '/../config/email-passport.php' => config_path( 'email-passport.php' ),
+		] );
 	}
 
 	/**
