@@ -1,0 +1,28 @@
+{
+  "name": "lenyapugachev/laravel-passport-email-login",
+  "description": "Email Link Request Grant for Laravel Passport",
+  "require": {
+    "laravel/passport": "^5.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleksei Pugachev",
+      "email": "lenyapugachev@smd.agency"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "LenyaPugachev\\PassportEmailLogin\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LenyaPugachev\\PassportEmailLogin\\Providers\\EmailLoginServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
