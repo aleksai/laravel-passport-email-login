@@ -31,7 +31,7 @@ trait EmailLoginTrait {
 
 				if($token->token !== $exp_token[1]) throw new Exception('Email token is wrong.');
 
-				$user = $userModel::find($token->user_id)->first();
+				$user = $userModel::find($token->user_id);
 				if(!$user) throw new Exception('User doesn\'t found.');
 
 				return $user;
