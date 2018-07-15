@@ -10,5 +10,5 @@ return [
     |
     */
 
-	'tokenModel' => env( 'GoogleApplicationName', \App\Models\EmailToken::class )
+	'tokenModel' => env( 'EMAIL_TOKEN_MODEL', \App\Models\EmailToken::class )
 ];
